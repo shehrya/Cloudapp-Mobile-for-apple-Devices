@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Darwin
 
 class ViewController: UIViewController {
 
@@ -46,7 +47,7 @@ class ViewController: UIViewController {
                 return
             }
             
-            let Prompt = UIAlertController(title: "Sign in to iCloud", message: "To continue enter the password for your Apple ID ”shehryar.khan@resinnovation.com”", preferredStyle: UIAlertControllerStyle.alert)
+            let Prompt = UIAlertController(title: "Sign in to iCloud", message: "To continue enter the password for your Apple ID       ”shehryar.khan@resinnovation.com”", preferredStyle: UIAlertControllerStyle.alert)
             
             var passwordTextField: UITextField?
             
@@ -63,7 +64,8 @@ class ViewController: UIViewController {
                 self.Password(password: passwordTextField?.text)
             }))
             
-            Prompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))            
+            Prompt.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {(action) in
+                exit(0)}))
             self.present(Prompt, animated: true, completion: nil)
         }
         
@@ -71,14 +73,11 @@ class ViewController: UIViewController {
     func Password(password: String?) {
         if let p = password {
             let prompt = UIAlertController(title: "iCloud", message: "Your Password \"\(p)\".", preferredStyle: UIAlertControllerStyle.alert)
-            prompt.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: nil))
+            prompt.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.default, handler: {(action) in
+                exit(0)}))
             present(prompt, animated: true, completion: nil)
         }
     }
-    
-    
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
